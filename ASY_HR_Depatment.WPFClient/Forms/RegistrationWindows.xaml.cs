@@ -1,4 +1,4 @@
-﻿// track
+﻿
 
 using ASY_HR_Depatment.DB;
 using System.Windows;

@@ -1,8 +1,6 @@
 ﻿using ASY_HR_Depatment.DB;
-using System.Text;
 using System.Windows;
-using System.Windows.Media.Imaging;
-// track
+
 namespace ASY_HR_Depatment.WPFClient
 {
     /// <summary>
@@ -13,6 +11,8 @@ namespace ASY_HR_Depatment.WPFClient
         public MainWindow()
         {
             InitializeComponent();
+            tb_login.Text = "Frakiec89"; // todo это  для разработки  - потом  убрать 
+            tb_password.Text = "123"; 
         }
 
         private void btn_in_Click(object sender, RoutedEventArgs e)
@@ -27,6 +27,9 @@ namespace ASY_HR_Depatment.WPFClient
                 if (us != null) 
                 {
                     MessageBox.Show("Привет " + us.UserName);
+                    Forms.MenuWindow menu = new Forms.MenuWindow(us); 
+                    menu.Show();
+                    Close();
                 }
                 else
                 {

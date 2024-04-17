@@ -15,8 +15,10 @@ namespace ASY_HR_Depatment.DB
             optionsBuilder.UseSqlServer(_cs);
         }
 
-
         public DbSet<User> Users { get; set; }
+        public DbSet<Group> Groups { get; set; }
+
+        public DbSet<Student> Students { get; set; }
 
 
     }

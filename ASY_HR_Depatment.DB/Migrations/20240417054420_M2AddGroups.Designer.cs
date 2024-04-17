@@ -3,6 +3,7 @@ using ASY_HR_Depatment.DB;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ASY_HR_Depatment.DB.Migrations
 {
     [DbContext(typeof(MS_Context))]
-    partial class MS_ContextModelSnapshot : ModelSnapshot
+    [Migration("20240417054420_M2AddGroups")]
+    partial class M2AddGroups
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -41,36 +44,6 @@ namespace ASY_HR_Depatment.DB.Migrations
                     b.ToTable("Groups");
                 });
 
-            modelBuilder.Entity("ASY_HR_Depatment.DB.Student", b =>
-                {
-                    b.Property<int>("StudentID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("StudentID"));
-
-                    b.Property<int>("GroupID")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Patronumic")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SurName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("StudentID");
-
-                    b.HasIndex("GroupID");
-
-                    b.ToTable("Students");
-                });
-
             modelBuilder.Entity("ASY_HR_Depatment.DB.User", b =>
                 {
                     b.Property<int>("UserID")
@@ -97,17 +70,6 @@ namespace ASY_HR_Depatment.DB.Migrations
                         .IsUnique();
 
                     b.ToTable("Users");
-                });
-
-            modelBuilder.Entity("ASY_HR_Depatment.DB.Student", b =>
-                {
-                    b.HasOne("ASY_HR_Depatment.DB.Group", "Group")
-                        .WithMany()
-                        .HasForeignKey("GroupID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Group");
                 });
 #pragma warning restore 612, 618
         }

@@ -3,6 +3,7 @@ using ASY_HR_Depatment.DB;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ASY_HR_Depatment.DB.Migrations
 {
     [DbContext(typeof(MS_Context))]
-    partial class MS_ContextModelSnapshot : ModelSnapshot
+    [Migration("20240417064120_M3AddStudent")]
+    partial class M3AddStudent
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
